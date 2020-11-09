@@ -93,7 +93,7 @@ func ParseProfiles(fileName string) ([]*Profile, error) {
 				b.EndLine == last.EndLine &&
 				b.EndCol == last.EndCol {
 				if b.NumStmt != last.NumStmt {
-					return nil, fmt.Errorf("inconsistent NumStmt: changed from %d to %d", last.NumStmt, b.NumStmt)
+					return nil, fmt.Errorf("inconsistent NumStmt: changed from %d to %d fn=%s start=%d,%d", last.NumStmt, b.NumStmt, p.FileName, b.StartLine, b.StartCol)
 				}
 				if mode == "set" {
 					p.Blocks[j-1].Count |= b.Count
